@@ -1,0 +1,28 @@
+package day43_exceptions;
+
+import java.time.LocalTime;
+
+public class BreakTimeException extends RuntimeException{
+
+    public BreakTimeException(){
+        super("Time for 15 minute of Break!");
+    }
+
+    public BreakTimeException(String msg){
+        super(msg);
+    }
+
+    static class Test{
+        public static void main(String[] args) {
+            LocalTime currentTime =  LocalTime.now();
+
+            if(currentTime.equals(LocalTime.of(10,45))){
+                throw new BreakTimeException();
+            }else if(currentTime.equals(LocalTime.of(11,45))){
+                throw  new BreakTimeException();
+            }
+        }
+    }
+
+
+}
